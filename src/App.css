@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.CoinList{
+  background-color: #333F44;
+  margin: 64px 250px 0px 250px;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.Search_bar{
+  margin-top: 15vh;
+}
+
+.Search_bar button{
+  font-size: larger;
+  padding: 10px;
+  padding-bottom: 12px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.Search_bar input{
+  font-size: large;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.Search_bar input:focus{
+  outline: none;
+}
+
+
