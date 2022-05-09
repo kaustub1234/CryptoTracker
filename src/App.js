@@ -2,21 +2,30 @@ import './App.css';
 import { useState, useEffect, useCallback } from 'react'
 import CoinDataList from './components/CoinDataList';
 import Loading from './components/Loading';
+import ErrorMsg from './components/ErrorMsg';
 
 function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [coinData, setCoinData] = useState([]);
+  const [isError, setIsError] = useState(false);
 
 
   const fetchCoinsInfo = useCallback(async () => {
     setIsLoading(true)
-    const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-    const data = await response.json()
-    console.log(data);
-    setCoinData(data);
-    setIsLoading(false)
+    try {
+      const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+      if (!response.ok) {
+        throw new Error('Ops something went wrong!!! pls reload ↻ and try again')
+      }
+      const data = await response.json()
+      console.log(data);
+      setCoinData(data);
+      setIsLoading(false)
+    } catch (error) {
+      setIsError(true)
+    }
   }, [])
 
   useEffect(() => {
@@ -31,12 +40,13 @@ function App() {
 
   return (
     <div className="App">
-      {isLoading && <Loading />}
-      <div className='Search_bar'>
+      {isLoading && !isError && <Loading/>}
+      {isLoading && isError && <ErrorMsg/>}
+      {!isLoading && !isError && <div className='Search_bar'>
         <input value={search} onChange={SearchChangeHandler} placeholder='Search coins here...' type='text' />
         <button>Search</button>
-      </div>
-      {!isLoading && <div className='CoinList'>
+      </div>}
+      {!isLoading && !isError && <div className='CoinList'>
         {
           filteredCoins.map((ele) =>
             <CoinDataList

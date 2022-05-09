@@ -6,7 +6,7 @@ const Loading = () => {
     return (
         <>
             <div className='backdrop'></div>
-            <img src={img} class="rotate linear infinite" width="200" height="200" />
+            <img src={img} className="rotate linear infinite" width="200" height="200" />
         </>
     )
 }
