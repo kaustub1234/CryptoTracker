@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CryptoTracker/static/css/main.256bf9ed.css",
+    "main.js": "/CryptoTracker/static/js/main.58b24568.js",
+    "static/media/bitlogo.png": "/CryptoTracker/static/media/bitlogo.df5d88ac919163ec6de5.png",
+    "index.html": "/CryptoTracker/index.html",
+    "main.256bf9ed.css.map": "/CryptoTracker/static/css/main.256bf9ed.css.map",
+    "main.58b24568.js.map": "/CryptoTracker/static/js/main.58b24568.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.256bf9ed.css",
+    "static/js/main.58b24568.js"
+  ]
+}
